@@ -1,11 +1,17 @@
-<div class="card" >
+<div class="card mt-4">
+    <div class="card-header">
+        <p>
+            <img src="{{post.user.profile_image.url}}" alt="" class="rounded-circle" width="50px">
+            {{post.user}}
+        </p>
+    </div>
     <img src="{{post.image.url}}" class="card-img-top" alt="...">
     <div class="card-body">
       <!--<h5 class="card-title">{{post.title}}</h5>-->
       <p class="card-text">{{post.content}}</p>
       <p class="card-text">{{post.created_at|timesince}}</p>
-      <p>{{post.image}}</p>
-      <p>{{post.image.url}}</p>
+      <!--<p>{{post.image}}</p>-->
+      <!--<p>{{post.image.url}}</p>-->
       <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
     </div>
 </div>
