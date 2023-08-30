@@ -1,5 +1,7 @@
 from django.db import models
 from django_resized import ResizedImageField
+from django.conf import settings
+
 # Create your models here.
 class Post(models.Model):
     content = models.TextField()
@@ -11,3 +13,5 @@ class Post(models.Model):
         crop=['middle','center'],
         upload_to='image/%Y/%m'
     )
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    # user_id = 
