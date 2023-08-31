@@ -1,3 +1,4 @@
+{% load bootstrap5 %}
 <div class="card mt-4">
     <div class="card-header">
         <p>
@@ -13,5 +14,17 @@
       <!--<p>{{post.image}}</p>-->
       <!--<p>{{post.image.url}}</p>-->
       <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
+    </div>
+    <div class="cardfooter">
+        <form action="{% url 'posts:comment_create' post_id=post.id%}" method="POST">
+            {% csrf_token %}
+            {% bootstrap_form comment_form %}
+            <input type="submit">
+        </form>
+
+        <hr>
+        {% for comment in post.comment_set.all %}
+            <li>{{comment.user}} : {{comment.content}}</li>
+        {% endfor %}
     </div>
 </div>
