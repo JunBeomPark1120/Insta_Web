@@ -22,9 +22,9 @@
                 {% endif %}
             </div>
             <div class="row">
-                <div class="col">게시물</div>
-                <div class="col">팔로잉</div>
-                <div class="col">팔로우</div>
+                <div class="col">게시물 {{user_info.post_set.all|length}}</div>
+                <div class="col">팔로워 {{user_info.followers.all|length}}</div>
+                <div class="col">팔로우 {{user_info.followings.all|length}}</div>
             </div>
         </div>
     </div>
