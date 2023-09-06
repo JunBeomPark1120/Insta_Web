@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from .forms import CustomUserCreationForm, CustomAuthenticationForm
 from django.contrib.auth import login as auth_login
+# logout을 제공하는 함수다.
+from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.decorators import login_required
 # from .models import User
 from django.contrib.auth import get_user_model
@@ -36,7 +38,11 @@ def login(request):
         'form': form,
     }
     
-    return render(request, 'accounts/form.html', context)
+    return render(request, 'accounts/login_form.html', context)
+
+def logout(request):
+    auth_logout(request)
+    return redirect('accounts:login')
 
 def profile(request, username):
     User = get_user_model()
