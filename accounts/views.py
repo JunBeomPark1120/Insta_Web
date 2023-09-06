@@ -21,7 +21,7 @@ def signup(request):
         'form': form,
     }
     
-    return render(request, 'accounts/form.html', context)
+    return render(request, 'accounts/Signup_form.html', context)
 
 def login(request):
     if request.method == 'POST':
