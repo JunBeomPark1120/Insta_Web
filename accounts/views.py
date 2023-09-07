@@ -44,6 +44,11 @@ def logout(request):
     auth_logout(request)
     return redirect('accounts:login')
 
+@login_required
+def search(request):
+    return render(request, 'accounts/Search.html')
+
+
 def profile(request, username):
     User = get_user_model()
     
